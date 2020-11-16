@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarController.viewControllers = [
             {
                 let viewController = UIViewController()
-                viewController.view.backgroundColor = .red
+                viewController.view.backgroundColor = .lightGray
                 viewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
                 return viewController
             }(),
@@ -37,6 +37,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 return navigationController
             }()
         ]
+
+        /// UINavigationController inside TabBarController inside UINavigaitonController
+        /// Inception !?!?!?
+//        let navigationController = UINavigationController()
+//        navigationController.viewControllers = [
+//            {
+//                let viewController = ViewControllerA()
+//                viewController.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 1)
+//                return viewController
+//            }(),
+//            tabBarController
+//        ]
+
         self.window = UIWindow(windowScene: windowScene)
         self.window?.rootViewController = tabBarController
         self.window?.makeKeyAndVisible()
